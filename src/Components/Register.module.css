@@ -1,0 +1,39 @@
+.loginContainer {
+  z-index: 100;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: #FFFF;
+  height: 100vh;
+  width: 40vw;
+}
+.close {
+  float: left;
+  margin: 10px;
+  cursor: pointer;
+}
+.loginForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+.formGroup {
+  width: 60%;
+  margin: 15px;
+}
+.formControl {
+  background-color: #E5F2FF;
+  width: 100%;
+  padding: 0.5rem;
+}
+.loginButton {
+  background-color: #36AE7C;
+  width: 100%;
+  padding: 0.5rem;
+}
+.google {
+  margin: 10px;
+  text-align: center;
+}

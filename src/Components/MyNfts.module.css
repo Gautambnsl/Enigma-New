@@ -1,0 +1,24 @@
+.heading {
+  text-align: center;
+  color: #0A8270;
+}
+.container {
+  width: 100vw;
+  float: center;
+  margin: 1rem;
+}
+.title {
+  color: #494949;
+}
+.price {
+  color: #0A8270;
+}
+.cardSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card {
+  margin: 0.5rem;
+  border-radius: 1rem;
+}
