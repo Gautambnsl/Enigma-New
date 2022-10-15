@@ -3,8 +3,9 @@ import { AiOutlineClose } from "react-icons/ai";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import styles from "./Register.module.css";
-import register from "./register";
 import { useState } from "react";
+import Register from "./BackendConnection/register";
+
 
 const LogIn = ({ login, setLogin }) => {
   let [meterId, setMeterId] = useState("");
@@ -13,8 +14,9 @@ const LogIn = ({ login, setLogin }) => {
     // setMeterId(e.target.value);
 
     console.log(meterId);
-    // console.log("this is working");
-    register(meterId);
+    console.log("this is working");
+    Register(meterId);
+    
   }
   const handleInputChange = (e) => {
     setMeterId(e.target.value);

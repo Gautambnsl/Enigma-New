@@ -1,0 +1,18 @@
+.element{
+
+display: flex;
+flex-direction: row;
+justify-content: center;
+/* align-content: center; */
+}
+
+
+.element-child{
+   
+    margin: 15px;
+
+    /* margin-top: 30px; */
+    border: 2px solid rgb(148, 142, 142);
+    box-shadow: 0px 5px 20px rgb(16, 17, 16);
+
+}

@@ -1,31 +1,34 @@
-import { sequence } from '0xsequence';
+import { ethers } from "ethers";
+import getEnigmaBalance from "./BackendConnection/getEnigmaBalance";
+
 
 async function connectWallet(){
+console.log("this is woking")
 
-const wallet = await sequence.initWallet("mumbai", {
-    networkRpcUrl: "https://polygon-mumbai.g.alchemy.com/v2/yl9TVrISmKuXSbjAf_l1tWsI6tajagX5",
-})
+    if (window.ethereum) {
+        
+        let chainId = window.ethereum.chainId;
+        if (chainId !== "0x13881") {
+            const temp = await window.ethereum.request({
+                method: "wallet_switchEthereumChain",
+                params: [{ chainId: "0x13881" }], // chainId must be in hexadecimal numbers
+            });
+        }
+        // if (chainId === "0x13881") {
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            const account = await provider.send("eth_requestAccounts", []);
+            console.log(account,"🚀")
+            let balance =   await getEnigmaBalance(account[0]);
+            document.getElementById("address").innerHTML = `Balance Enigma : ${balance}`;
+            document.getElementById("address").classList.add("address");
+        }else{
+            alert("please install Metamask and Switch to Mumbai Network")
+        }
 
 
-console.log(wallet);
+    }
+    
 
-const connectDetails = await wallet.connect()
 
-// const connectDetails = await wallet.connect()
-
-// console.log('=> connected?', connectDetails.connected)
-
-const add = sequence.getWallet()
-
-const walletAddress = await add.getAddress()
-
-document.getElementById('address').innerHTML = walletAddress;
-document.getElementById("address").style.color = "yellow";
-
-console.log(walletAddress)
-
-return walletAddress;
-
-}
 
 export default connectWallet;

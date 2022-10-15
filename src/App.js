@@ -1,23 +1,31 @@
-
-import './App.css';
-import {useState} from 'react';
-import Header from './Components/Header';
-import About from './Components/About';
-import Agents from './Components/Agents';
-import Bproperty from './Components/Bproperty';
+import React from 'react';
+import Home from './Components/Home';
+import Navbar from "./Components/Navbar";
 import MyNfts from './Components/MyNfts';
-import RegisterPage from './Components/RegisterPage'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import './App.css';
+import SellToken from './Components/SellToken';
+import BuyNft from './Components/BuyNft';
 
 function App() {
-  const [login, setLogin] = useState(true);
-  return (
-    <div className="App">
-      <Header/>
-      <About/>
-      <Bproperty/>
-      <Agents/>
-      {/* <MyNfts /> */}
-    </div>
+  
+ 
+
+
+ return (<>
+  <div className="App">
+  <BrowserRouter>
+  <Navbar />
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="selltoken" element={<SellToken />} />
+    <Route path="buynft" element={<BuyNft />} />
+    <Route path="mynft" element={<MyNfts />} />
+    <Route path="*" element={<div>Not found, please go back</div>} />  
+  </Routes>
+  </BrowserRouter>
+  </div>
+  </>
   );
 }
 
